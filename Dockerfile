@@ -1,6 +1,10 @@
-FROM alpine:latest
+FROM ubuntu:16.04
 
-RUN apk add  --update python python-dev py-pip && \
+RUN sudo apt-get  -yqq update && \
+    sudo apt-get -yqq install python-dev python-pip \
+    libxml2-dev libxslt1-dev zlib1g-dev libffi-dev libssl-dev && \
     pip install --upgrade pip && \
-    pip install scrapy && \
-    rm /var/cache/apk/*
+    pip install scrapy
+
+
+
